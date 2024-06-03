@@ -1,0 +1,22 @@
+<div class="add-product">
+    <h1>Add New Product</h1>
+    <p class="p_message">{{addProductMessage}}</p>
+    <form #addProduct="ngForm" (ngSubmit)="submit(addProduct.value);addProduct.reset()"  class="common-Form">
+        <input type="text" class="form-input" placeholder="add new Product" name="name" #name="ngModel" ngModel><br>
+        <p class="invalid-input"><span *ngIf="name.invalid && name.touched">Please Enter Product Name</span></p>
+                
+        <input type="text" class="form-input" name="price" #price="ngModel" placeholder="Enter products price" ngModel><br>
+        <p class="invalid-input"><span *ngIf="price.invalid && price.touched">Please Enter Product Price</span></p>
+                
+        <input type="text" class="form-input" name="color" #color="ngModel" placeholder="Enter products color" ngModel><br>
+        <p class="invalid-input"><span *ngIf="color.invalid && color.touched">Please Enter Product Color</span></p>
+                
+        <input type="text" class="form-input" name="category" #category="ngModel" placeholder="Enter products category" ngModel><br>
+        <p class="invalid-input"><span *ngIf="category.invalid && category.touched">Please Enter Product category</span></p>
+                
+        <textarea type="text" name="description"  placeholder="Enter product description" cols="30" rows="10"
+            ngModel></textarea><br>
+        <input type="text" class="form-input" name="image" placeholder="Enter products Image Url" ngModel><br>
+        <button [disabled]="addProduct.invalid" class="form-button"> Add Product</button>
+    </form>
+</div>
